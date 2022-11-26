@@ -3,11 +3,13 @@ for (var i = 0; i < noOfDrumButton; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     let buttonValue = this.innerHTML;
     makeSound(buttonValue);
+    buttomAnimation(buttonValue);
   });
 }
 
 document.addEventListener("keydown", function (event) {
   makeSound(event.key);
+  buttomAnimation(event.key);
 });
 
 const makeSound = (key) => {
@@ -52,3 +54,11 @@ const makeSound = (key) => {
       break;
   }
 };
+
+function buttomAnimation(key) {
+  let activeButton = document.querySelector("." + key);
+  activeButton.classList.add("pressed");
+  setTimeout(() => {
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
