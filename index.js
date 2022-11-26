@@ -55,6 +55,7 @@ const makeSound = (key) => {
   }
 };
 
+
 function buttomAnimation(key) {
   let activeButton = document.querySelector("." + key);
   activeButton.classList.add("pressed");
